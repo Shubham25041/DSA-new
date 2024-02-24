@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next;
+    Node *prev;
+    
+    // constructor
+    Node(int value){
+        data = value;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+int main(){
+
+    // Insertion at front
+    Node *head,*tail;
+    int arr[]={2,4,5,7,9};
+    
+    for(int i=0; i<5; i++){
+        if(head==NULL){
+            head = new Node(arr[i]);
+            tail = head;
+        }
+        else{
+            Node *temp = new Node(arr[i]);
+            tail->next=temp;
+            temp->prev=head;
+            tail=temp;
+        }
+    }
+    
+    Node *trav=head;
+    while(trav){
+        cout<<trav->data<<" ";
+        trav = trav->next;
+    }
+    
+}
