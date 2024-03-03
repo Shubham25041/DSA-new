@@ -1,0 +1,93 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Stack{
+    int size;
+    int top;
+    int *arr;
+    
+    public:
+    
+    bool flag;  // flag will simply tell us if our stack is empty it will return 1
+    
+    // constructor
+    Stack(int s){
+        size = s;
+        top = -1;
+        arr = new int[s];
+        flag = 1;  // Initially flag is 1
+    }
+    
+    
+    // PUSH
+    void push(int value){
+        if(top == size-1){
+            cout<<"Stack Overflow"<<endl;
+            return;
+        }
+        else{
+            top++;
+            cout<<"Pushed: "<<value<<" into the Stack"<<endl;
+            arr[top] = value;
+            flag = 0;  // Push matlab stack me koi element to hai issliye 0
+        }
+    }
+    
+    // POP
+    void pop(){
+        if(top == -1){
+            cout<<"Stack Underflow"<<endl;
+            return;
+        }
+        else{
+            cout<<arr[top]<<" : Popped out form Stack"<<endl;
+            top--;
+            if(top==-1)  // agar Stack empty ho jai to flag 1 kar dena
+            flag = 1;  
+        }
+    }
+    
+    // peek
+    int peek(){
+        if(top == -1){
+            cout<<"Stack is Empty"<<endl;
+            return -1;
+        }
+        else{
+            return arr[top];
+        }
+    }
+    
+    // IsEmpty
+    bool IsEmpty(){
+        return top==-1;
+    }
+    
+    // IsSize
+    int IsSize(){
+        return top+1;
+    }
+    
+};
+
+
+int main(){
+    
+    // Stack S(3);
+    // S.push(2);
+    // S.push(3);
+    // S.push(9);
+    // cout<<S.IsSize()<<endl;
+    // cout<<S.IsEmpty()<<endl;
+    // S.pop();
+    // cout<<S.peek()<<endl;
+    
+    Stack S(3);
+    S.push(-1);
+    int value = S.peek();
+    if(S.flag==0)           // This condition checks if Stack is not empty the only print the value
+    cout<<value<<endl;
+    
+}
+
+
