@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next;
+    Node *prev;
+    
+    // constructor
+    Node(int value){
+        data = value;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+int main(){
+    // Deletion at any given position in Doubly Linked List 
+    
+    Node *head,*tail;
+    int arr[] = {1,3,5,8,9};
+    
+    for(int i=0; i<5; i++){
+        if(head == NULL){
+            head = new Node(arr[i]);
+            tail = head;
+        }
+        else{
+            Node *temp = new Node(arr[i]);
+            tail->next = temp;
+            temp->prev = tail;
+            tail = temp;
+        }
+    }
+    
+    Node *trav1 = head;
+    while(trav1){
+        cout<<trav1->data<<" ";
+        trav1 = trav1->next;
+    }
+    cout<<endl;
+    
+    int pos = 3;
+    
+    if(pos == 1){  // Means 1st node ko delete karna hai
+        if(head->next == NULL){  // Jab ek single node hi present ho
+            delete head;
+            head = NULL;
+        }
+        else{
+            Node *temp = head;
+            head = head->next;
+            delete temp;
+            head->prev = NULL;
+        }
+    }
+    else{
+        Node *curr = head;
+        while(--pos){
+            curr = curr->next;
+        }
+        
+        if(curr->next == NULL){
+            curr->prev->next = NULL;
+            delete curr;
+        }
+        else{
+            curr->prev->next = curr->next;
+            curr->next->prev = curr->prev;
+            delete curr;
+        }
+    }
+   
+    Node *trav2 = head;
+    while(trav2){
+        cout<<trav2->data<<" ";
+        trav2 = trav2->next;
+    }
+
+}
