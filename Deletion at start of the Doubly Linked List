@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next;
+    Node *prev;
+    
+    // constructor
+    Node(int value){
+        data = value;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+int main(){
+    // Deletion at start of the Doubly Linked List 
+    
+    Node *head,*tail;
+    int arr[] = {1,3,5,8,9};
+    
+    for(int i=0; i<5; i++){
+        if(head == NULL){
+            head = new Node(arr[i]);
+            tail = head;
+        }
+        else{
+            Node *temp = new Node(arr[i]);
+            tail->next = temp;
+            temp->prev = tail;
+            tail = temp;
+        }
+    }
+    
+    Node *trav1 = head;
+    while(trav1){
+        cout<<trav1->data<<" ";
+        trav1 = trav1->next;
+    }
+    cout<<endl;
+    
+    // Node *temp = head;
+    // head = head->next;   // This will give us correct answer but we hadn't taken care of prev here
+    // delete temp;
+    
+    if(head != NULL){
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+        // head->prev = NULL;  // This line can give us error in case of only one node
+        if(head->next != NULL){
+            head->prev = NULL;
+        }
+    }
+   
+    Node *trav2 = head;
+    while(trav2){
+        cout<<trav2->data<<" ";
+        trav2 = trav2->next;
+    }
+
+}
