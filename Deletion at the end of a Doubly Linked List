@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next;
+    Node *prev;
+    
+    // constructor
+    Node(int value){
+        data = value;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+int main(){
+    // Deletion at end of the Doubly Linked List 
+    
+    Node *head,*tail;
+    int arr[] = {1,3,5,8,9};
+    
+    for(int i=0; i<5; i++){
+        if(head == NULL){
+            head = new Node(arr[i]);
+            tail = head;
+        }
+        else{
+            Node *temp = new Node(arr[i]);
+            tail->next = temp;
+            temp->prev = tail;
+            tail = temp;
+        }
+    }
+    
+    Node *trav1 = head;
+    while(trav1){
+        cout<<trav1->data<<" ";
+        trav1 = trav1->next;
+    }
+    cout<<endl;
+    
+    // Node *curr = head;
+    // while(curr->next != NULL){
+    //     curr = curr->next;
+    // }
+    // curr->prev->next = NULL;
+    // delete curr;               // This is right but we have missed the case of single Node
+    
+    if(head != NULL){
+        if(head->next == NULL){
+            delete head;  // wrote somthing else instead of these two lines
+            head = NULL;
+        }
+        else{
+            Node *curr = head;
+            while(curr->next != NULL){
+                curr = curr->next;
+            }
+            curr->prev->next = NULL;
+            delete curr;
+        }
+    }
+    
+   
+    Node *trav2 = head;
+    while(trav2){
+        cout<<trav2->data<<" ";
+        trav2 = trav2->next;
+    }
+
+}
