@@ -1,0 +1,88 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Queue{
+    public:
+    int *arr;
+    int front,rear;
+    int size;
+    
+    // constructor
+    Queue(int s){
+        size = s;
+        front = rear = -1;
+        arr = new int[s];
+    }
+    
+    bool IsEmpty(){
+        return rear==-1;
+    }
+    
+    bool IsFull(){
+        return rear==size-1;
+    }
+    
+    // PUSH
+    void push(int x){
+        if(IsEmpty()){
+            front = rear = 0;
+            arr[rear] = x;
+            cout<<"Pushed: "<<x<<" into the Queue"<<endl;
+        }
+        else if(IsFull()){
+            cout<<"Queue Overflow"<<endl;
+            return;
+        }
+        else{
+            rear = rear + 1;
+            arr[rear] = x;
+            cout<<"Pushed: "<<x<<" into the Queue"<<endl;
+        }
+    }
+    
+    // POP
+    void pop(){
+        if(IsEmpty()){
+            cout<<"Queue Underflow"<<endl;
+            return;
+        }
+        else{
+            if(front == rear){
+                front = rear = -1;
+            }
+            else{
+                int element = arr[front];
+                cout<<"Popped: "<<element<<" from the Queue"<<endl;
+                front = front + 1;
+            }
+        }
+    }
+    
+    // First element
+    int start(){
+        if(IsEmpty()){
+            cout<<"Queue is Empty"<<endl;
+            return -1;
+        }
+        else{
+            return arr[front];
+        }
+    }
+    
+};
+
+int main(){
+    
+    Queue q(5);
+    q.push(3);
+    q.push(8);
+    q.push(2);
+    q.pop();
+    q.pop();
+    q.pop();
+    
+    int x = q.start();  // If we implement q.start() directly in case when Queue is empty it returns -1 to avoid that we did this
+    if(!q.IsEmpty())
+    cout<<x<<endl;
+    
+}
