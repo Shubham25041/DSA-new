@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next;
+    
+    // constructor
+    Node(int value){
+        data = value;
+        next = NULL;
+    }
+};
+
+class Queue{
+    Node *front;
+    Node *rear;
+    
+    public:
+    Queue(){
+        front = rear = NULL;
+    }
+    
+    bool IsEmpty(){
+        return front==NULL;
+    }
+    
+    // PUSH
+    void push(int x){
+        if(IsEmpty()){
+            front = new Node(x);
+            cout<<"Pushed: "<<x<<" into the Queue"<<endl;
+            rear = front;
+            return;
+        }
+        else{
+            rear->next = new Node(x);
+            rear = rear->next;
+            cout<<"Pushed: "<<x<<"into the Queue"<<endl;
+        }
+    }
+    
+    // POP
+    void pop(){
+        if(IsEmpty()){
+            cout<<"Queue Underflow";
+            return;
+        }
+        else{
+            Node *temp = front;
+            cout<<"Popped: "<<temp->data<<" from the Queue"<<endl;
+            front = front->next;
+            delete temp;
+        }
+    }
+    
+    int start(){
+        if(IsEmpty()){
+            cout<<"Queue is Empty";
+            return -1;
+        }
+        else{
+            return front->data;
+        }
+    }
+    
+};
+
+int main(){
+    
+    Queue q;
+    q.push(2);
+    q.push(5);
+    q.push(7);
+    q.push(11);
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    
+}
