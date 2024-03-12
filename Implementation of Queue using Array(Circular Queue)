@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Queue{
+    public:
+    int *arr;
+    int front,rear;
+    int size;
+    
+    // constructor
+    Queue(int s){
+        size = s;
+        arr = new int[s];
+        front = -1 , rear = -1;
+    }
+    
+    bool IsEmpty(){
+        return rear==-1;
+    }
+    
+    bool IsFull(){
+        return (rear+1)%size==front;
+    }
+    
+    // PUSH
+    void push(int x){
+        if(IsEmpty()){
+            front = rear = 0;
+            arr[rear] = x;
+            cout<<"Pushed: "<<x<<" into the Queue"<<endl;
+        }
+        else if(IsFull()){
+            cout<<"Queue Overflow";
+            return;
+        }
+        else{
+            rear = (rear+1)%size;
+            arr[rear] = x;
+            cout<<"Pushed: "<<x<<" into the Queue"<<endl;
+        }
+    }
+    
+    // POP
+    void pop(){
+        if(IsEmpty()){
+            cout<<"Queue Underflow";
+            return;
+        }
+        else{
+            if(front == rear){
+                front = rear = -1;
+            }
+            else{
+                int ele = arr[front];
+                cout<<"Popped: "<<ele<<" from the array"<<endl;
+                front = (front+1)%size;
+            }
+        }
+    }
+    
+    // start
+    int start(){
+        if(IsEmpty()){
+            cout<<"Queue is Empty";
+            return -1;
+        }
+        else{
+            return arr[front];
+        }
+    }
+    
+};
+
+int main(){
+    
+    Queue q(5);
+    q.push(5);
+    q.push(8);
+    q.push(9);
+    q.push(2);
+    q.push(4);
+    q.pop();
+    
+}
