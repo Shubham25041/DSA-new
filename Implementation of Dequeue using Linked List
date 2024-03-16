@@ -1,0 +1,129 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node *next, *prev;
+    
+    // constructor
+    Node(int value){
+        data = value;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+class Dequeue{
+    Node *front, *rear;
+    public:
+    // constructor
+    Dequeue(){
+        front = rear = NULL;
+    }
+    
+    // PUSHFRONT
+    void push_front(int x){
+        if(front == NULL){
+            front = rear = new Node(x);
+            cout<<"Pushed: "<<x<<" at the front of the Dequeue"<<endl;
+            return;
+        }
+        else{
+            Node *temp = new Node(x);
+            temp->next = front;
+            front->prev = temp;
+            front = temp;
+            cout<<"Pushed: "<<x<<" at the front of the Dequeue"<<endl;
+            return;
+        }
+    }
+    
+    // PUSHBACK
+    void push_back(int x){
+        if(front == NULL){
+            front = rear = new Node(x);
+            cout<<"Pushed: "<<x<<" at the end of the Dequeue"<<endl;
+            return;
+        }
+        else{
+            Node *temp = new Node(x);
+            rear->next = temp;
+            temp->prev = front;
+            rear = temp;
+            cout<<"Pushed: "<<x<<" at the end of the Dequeue"<<endl;
+            return;
+        }
+    }
+    
+    // POPFRONT
+    void pop_front(){
+        if(front == NULL){
+            cout<<"Dequeue is empty"<<endl;
+            return;
+        }
+        else{
+            Node *temp = front;
+            cout<<"Popped out: "<<temp->data<<" front the front of Dequeue"<<endl;
+            front = front->next;
+            delete temp;
+            if(front){
+                front->prev = NULL;
+            }
+            else{
+                rear = NULL;
+            }
+        }
+    }
+    
+    // POPBACK
+    void pop_back(){
+        if(front == NULL){
+            cout<<"Dequeue is empty";
+            return;
+        }
+        else{
+            Node *temp = rear;
+            cout<<"Popped out: "<<temp->data<<" front the front of Dequeue"<<endl;
+            rear = rear->prev;
+            delete temp;
+            if(rear){
+                rear->next = NULL;
+            }
+            else{
+                front = NULL;
+            }
+        }
+    }
+    
+    // START
+    int start(){
+        if(front == NULL)
+        return -1;
+        else{
+            return front->data;
+        }
+    }
+    
+    // END
+    int end(){
+        if(front == NULL)
+        return -1;
+        else{
+            return rear->data;
+        }
+    }
+    
+};
+
+int main(){
+    
+    Dequeue q;
+    q.push_back(5);
+    q.push_front(8);
+    q.push_front(9);
+    q.push_back(12);
+    cout<<q.start()<<endl;
+    cout<<q.end()<<endl;
+    
+}
