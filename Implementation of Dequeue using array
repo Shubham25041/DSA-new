@@ -1,0 +1,104 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class dequeue{
+    int front,rear;
+    int *arr;
+    int size;
+    
+    public:
+    dequeue(int s){
+        size = s;
+        arr = new int[s];
+        front = rear = -1;
+    }
+    
+    // FULL
+    bool isFull(){
+        return (rear+1)%size == front;
+    }
+    
+    // EMPTY
+    bool isEmpty(){
+        return front == -1;
+    }
+    
+    // PUSHBACK
+    void push_back(int x){
+        if(isEmpty()){
+            front = rear = 0;
+            cout<<"Pushed: "<<x<<" into the Dequeue"<<endl;
+            arr[front] = x;
+        }
+        else if(isFull()){
+            cout<<"Dequeue Overflow"<<endl;
+            return;
+        }
+        else{
+            rear = (rear+1)%size;
+            cout<<"Pushed: "<<x<<" into the Dequeue"<<endl;
+            arr[rear] = x;
+            return;
+        }
+    }
+    
+    // PUSHFRONT
+    void push_front(int x){
+        if(isEmpty()){
+            front = rear = 0;
+            cout<<"Pushed: "<<x<<" into the Dequeue"<<endl;
+            arr[front] = x;
+            return;
+        }
+        else if(isFull()){
+            return;
+        }
+        else{
+            front = (front-1+size)%size;
+            cout<<"Pushed: "<<x<<" into the Dequeue"<<endl;
+            arr[front] = x;
+            return;
+        }
+    }
+    
+    // POPFRONT
+    void pop_front(){
+        if(isEmpty()){
+            return;
+        }
+        else{
+            if(front == rear)
+            front = rear = -1;
+            else
+            cout<<"Popped: "<<arr[front]<<" front the Dequeue"<<endl;
+            front = (front+1)%size;
+        }
+    }
+    
+    // POPBACK
+    void pop_back(){
+        if(isEmpty()){
+            return;
+        }
+        else{
+            if(front == rear)
+            front = rear = -1;
+            else
+            cout<<"Popped: "<<arr[front]<<" front the Dequeue"<<endl;
+            rear = (rear-1+size)%size;
+        }
+    }
+    
+    
+    
+};
+
+int main(){
+    
+    dequeue d(5);
+    d.push_back(1);
+    d.push_front(3);
+    d.push_front(8);
+    cout<<d.isEmpty()<<endl;
+    
+}
