@@ -1,0 +1,383 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// void fact(int n, int res){
+//     if(n==0 || n==1){
+//         cout<<res;
+//         return;
+//     }
+//     res = res * n;
+//     fact(n-1, res);
+// }
+
+// void sumof(int n, int sum){
+//     if(n==0){
+//         cout<<sum;
+//         return;
+//     }
+//     sum += n;
+//     sumof(n-1,sum);
+// }
+
+// void powof(int n, int res){
+//     if(n==0){
+//         cout<<res;
+//         return;
+//     }
+//     res *= 2;
+//     powof(n-1,res);
+// }
+
+// int squareof(int n){
+//     if(n==1){
+//         return 1;
+//     }
+//     return (n*n) + squareof(n-1);
+// }
+
+// void printing(int n, int initial){
+//     if(n==initial){
+//         cout<<n;
+//         return;
+//     }
+//     cout<<initial<<" ";
+//     printing(n,initial+1);
+// }
+
+// void printingodd(int n, int start){
+//     if(start == n){
+//         if(n%2 != 0){
+//             cout<<n;
+//         }
+//         return;
+//     }
+//     if(start % 2 != 0){
+//         cout<<start<<" ";
+//     }
+//     printingodd(n,start+1);
+// }
+
+// void table(int n,int start){
+//     if(start == 10){
+//         cout<<(n*start);
+//         return;
+//     }
+//     cout<<(n*start)<<" ";
+//     table(n,start+1);
+// }
+
+// void cube(int n, int sum, int start){
+//     if(start==n){
+//         sum += (n*n*n);
+//         cout<<sum;
+//         return;
+//     }
+//     sum += (n*n*n);
+//     cube(n,sum,start+1)
+// }
+
+// void Prime(int n){
+//     if(n<=1){
+//         cout<<n<<": is not a Prime number";
+//     }
+//     else if(n==2){
+//         cout<<n<<": is a Prime number";
+//     }
+//     else{
+//         bool isPrime = true;
+
+//         for(int i=2; i<n; i++){
+//             if(n%i == 0){
+//                 isPrime = false;
+//                 break;
+//             }
+//         }
+//         if(isPrime){
+//             cout<<n<<": is a Prime no.";
+//         }
+//         else{
+//             cout<<n<<": is not a Prime no.";
+//         }
+//     }
+// }
+
+// void PrintArray(int arr[], int index, int size){
+//     if(index == size)
+//     return;
+
+//     cout<<arr[index]<<" ";
+//     PrintArray(arr,index+1,size);
+// }
+
+
+// void PrintSum(int arr[], int index, int size, int sum){
+//     if(index == size){
+//         cout<<sum;
+//         return;
+//     }
+
+//     sum += arr[index];
+//     PrintSum(arr,index+1,size,sum);
+// }
+                // OR
+// int PrintSum(int arr[], int index, int n){
+//     if(index == n)
+//     return 0;
+
+//     return arr[index] + PrintSum(arr,index+1,n);
+// }
+
+
+// void Minimum(int arr[], int index, int min, int size){
+//     if(index == size){
+//         cout<<min;
+//         return;
+//     }
+
+//     if(arr[index] < min){
+//         min = arr[index];
+//     }
+
+//     Minimum(arr,index+1,min,size);
+// }
+
+// void Pal(string str, int start, int end){
+//     if(start < end){
+//         cout<<"1";
+//         return;
+//     }
+
+//     if(str[start] != str[end]){
+//         cout<<"0";
+//         return;
+//     }
+//     Pal(str,start+1,end);
+// }
+
+// void ctvow(string str, int start, int end, int count){
+//     if(start == end){
+//         cout<<count;
+//         return;
+//     }
+//     if(str[start] == 'a' || str[start] == 'e' || str[start] == 'i' || str[start] == 'o' || str[start] == 'u'){
+//         count++;
+//     }
+//     ctvow(str,start+1,end,count);
+// }
+
+// void rev(string &str, int start , int end){
+//     if(start >= end){
+//         cout<<str;
+//         return;
+//     }
+
+//     char c = str[start];
+//     str[start] = str[end];
+//     str[end] = c;
+
+//     rev(str,start+1,end-1);
+// }
+
+// void tocapital(string &str, int start, int end){
+//     if(start == end){
+//         cout<<str;
+//         return;
+//     }
+
+//     char ch = str[start] - 'a' + 'A';
+//     str[start] = ch;
+//     tocapital(str, start+1, end);
+// }
+
+// int find(int arr[], int x, int start, int end){
+//     if(start == end){
+//         cout<<"0";
+//         return 0;
+//     }
+
+//     if(arr[start] == x){
+//         cout<<"1";
+//         return 1;
+//     }
+//     return find(arr,x,start+1,end);
+// }
+            // OR
+// void find(int arr[], int x, int start, int end){
+//     if(start>end){
+//         cout<<"0";
+//         return;
+//     }
+
+//     if(arr[start] == x){
+//         cout<<"1";
+//         return;
+//     }
+
+// 19.
+//     find(arr,x,start+1,end);
+// }
+
+// int find(int arr[], int start, int end, int x){
+//     if(start>=end)
+//     return 0;
+
+//     int mid = start + (end-start)/2;
+
+//     if(arr[mid] == x)
+//     return 1;
+
+//     if(arr[mid] < x)
+//         return find(arr, mid+1, end, x);      // search in right half
+
+//     return find(arr,start,end-1,x);         // search in left half
+// }
+
+// 20.
+// void Reverse(int arr[], int start, int end){
+//     if(start > end){
+//         return;
+//     }
+
+//     int n = arr[start];
+//     arr[start] = arr[end];
+//     arr[end] = n;
+
+//     return Reverse(arr, start+1, end-1);
+// }
+                // OR
+int Reverse(int arr[], int start, int end){
+    if(start > end){
+        return 0;
+    }
+
+    int n = arr[start];
+    arr[start] = arr[end];
+    arr[end] = n;
+
+    return Reverse(arr, start+1, end-1);
+}
+
+
+int main(){
+    // 1. Factorial of a number
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // fact(n,1);
+
+    // 2. Sum of n natural number
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // sumof(n,0);
+
+    // 3. Power of 2
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // powof(n,1);
+
+    // 4. sum of square of no  // Practise
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // cout<<squareof(n);
+
+    // 5. 1 to n without loop
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // printing(n,1);
+
+    // 6. all odd no. between 1 to n
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // printingodd(n,1);
+
+    // 7. Printing table of a number
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // table(n,1);
+
+    // 8. sum of cube of n natural number using recurssion
+    // int n; 
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // cube(n,0,1);
+
+    // 9. Check if the given number is prime or not
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // bool isPrime = true;
+    // for(int i=2; i<n; i++){
+    //     if(n%i == 0){
+    //         isPrime = false;
+    //         break;
+    //     }
+    // }
+
+    // if(isPrime){
+    //     cout<<n<<": is a Prime no.";
+    // }
+    // else{
+    //     cout<<n<<": is not a Prime no.";
+    // }
+
+    // 10. Checking if a given number is prime or not using recurssion
+    // int n;
+    // cout<<"Enter the number: ";
+    // cin>>n;
+    // Prime(n);
+
+    // 11. Printing array using recurssion
+    // int arr[5]={1,2,3,4,5};
+    // PrintArray(arr,0,5);
+
+    // 12. Sum of all element using recurssion
+    // int arr[5]={1,2,3,4,5};
+    // PrintSum(arr,0,5,0);
+                // OR
+    // int arr[5]={1,2,3,4,5};
+    // cout<<PrintSum(arr,0,5);
+
+    // 13. Minimum element in array
+    // int arr[5]={6,4,2,7,1};
+    // Minimum(arr,0,INT_MAX,5);
+
+    // 14. Check Pallindrome string
+    // string str = "naman";
+    // Pal(str,0,4);
+
+    // 15. count vowel in string
+    // string str = "naman";
+    // ctvow(str,0,5,0);
+
+    // 16. Reverse String using recursion
+    // string str = "Shubham";
+    // rev(str,0,6);
+
+    // 17. Convert small to capital
+    // string str = "name";
+    // tocapital(str,0,4);
+
+    // 18. Linear Search using recursion
+    // int arr[8] = {2,3,5,8,9,11,23,45};
+    // int x = 8;
+    // find(arr,8,0,8);
+
+    // 19. Binary Search using recursion
+    // int arr[7] = {2,4,6,8,12,15,34};
+    // int x = 34;
+    // cout<<find(arr,0,7,34);
+
+    // 20. Recursive funtion to reverse the elements of array
+    int arr[6] = {10,8,3,5,11,23};
+    Reverse(arr,0,5);
+    for(int i=0; i<6; i++){
+        cout<<arr[i]<<" ";
+    }
+
+}
