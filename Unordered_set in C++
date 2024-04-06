@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// It contains only unique elements 
+// Search, Insert and removal have O(1) time complexity
+// It uses hashing technique to achieve it
+
+
+int main(){
+    
+    // unordered_set<int>s;
+    // s.insert(10);
+    // s.insert(20);
+    // s.insert(30);
+    // s.insert(15);
+    // s.insert(11);
+    // s.insert(10);
+    
+    // for(auto it = s.begin(); it != s.end(); it++){
+    //     cout<<*it<<" ";
+    // }
+    cout<<endl;
+    
+    // If we want duplicate elements to be present also we simply use multi-set
+    unordered_multiset<int>s;
+    s.insert(10);
+    s.insert(20);
+    s.insert(30);
+    s.insert(15);
+    s.insert(11);
+    s.insert(10);
+    
+    for(auto it = s.begin(); it != s.end(); it++){
+        cout<<*it<<" ";
+    }
+    
+    // set, multiset, unordered_set, unordered_multiset
+    // set: unique element, sorted
+    // multiset: sorted, no unique element criteria
+    // unordered_set: Unique element, not sorted
+    // unordered_multiset: not unique element, not sorted
+    
+}
