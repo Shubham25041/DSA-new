@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    // pair<string,int>p;
+    
+    // // Two method of insertion
+    // p = make_pair("rohit",30);  // 1.
+    
+    // 2. (method of initialization)
+    // p.first = "rohit";
+    // p.second = 30;
+    
+    // cout<<p.first<<" "<<p.second<<endl;
+    
+    
+    // Here we have to store 3 things i.e. name, age, weight
+    pair<string, pair<int,int> >p;
+    p.first = "Rohit";
+    p.second.first = 25;
+    p.second.second = 80;
+    
+    cout<<p.first<<" "<<p.second.first<<" "<<p.second.second<<endl;
+    
+    
+    // 2nd method 
+    p = make_pair("rohit", make_pair(25,80));
+    cout<<p.first<<" "<<p.second.first<<" "<<p.second.second<<endl;
+    
+    
+    pair< pair<string,int>, int>pi;
+    pi = make_pair(make_pair("rohit",22),58);
+    cout<<pi.first.first<<" "<<pi.first.second<<" "<<pi.second<<endl;
+    
+    
+    // Now we have to store name,age, weight, money together
+    pair< pair<string,int>, pair<int, int> > p;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
