@@ -1,0 +1,87 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Only unique value will be stored
+// Store value in sorted order (ascending)
+// Insertion, deletion and search operations have logarithmic i.e. O(log n) time
+// Generally implemented using Red-Black Tree, AVL Tree
+// We can sort it in descending order also using greater<type>
+
+// class Person{
+//     public:
+//     int age;
+//     string name;
+// }
+
+int main(){
+    set<int>s;
+    // Insertion
+    s.insert(10);
+    s.insert(10);
+    s.insert(110);
+    s.insert(200);
+    s.insert(25);
+    s.insert(10);
+    s.insert(36);
+    s.insert(99);
+    
+    for(auto it = s.begin(); it != s.end(); it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+    // As we can see when we have printed the elements of set it has printed 10 only one time because set only contains 
+    // unique element, it has also printed the element in sorted order
+    
+    
+    
+    // If we want to print the element in descending order
+    set<int, greater<int> >s1;
+    // Insertion
+    s1.insert(10);
+    s1.insert(10);
+    s1.insert(110);
+    s1.insert(200);
+    s1.insert(25);
+    s1.insert(10);
+    s1.insert(36);
+    s1.insert(99);
+    
+    // for(auto it = s1.begin(); it != s1.end(); it++){
+    //     cout<<*it<<" ";
+    // }
+    
+    
+    // find
+    // What happens here is if we have 200 in the set iterator will point to it, if we don't have that element it will
+    // point to the end element i.e. the element after last element in the set
+    if(s.find(200) != s.end())
+    cout<<"Present \n";
+    else
+    cout<<"Absent \n";
+    
+    // We have one another method to check whether the element is present in set or not
+    cout<<s.count(99)<<endl;
+    
+    
+    // delete 
+    s.erase(99);
+    cout<<s.count(99)<<endl;
+    
+    
+    // set<Person>s;
+    // Person p1,p2,p3;
+    // p1.age = 28, p1.name = "Rohit";
+    // p2.age = 32, p2.name = "Harkirat";
+    // p3.age = 21, p3.name = "Shubham";
+    
+    // s.insert(p1);   // Skip this part where we are using class for set
+    // s.insert(p2);
+    // s.insert(p3);
+    
+    // for(auto it = s.begin(); it != s.end(); it++){
+    //     cout<<it->age<<" "<<it->name<<endl;
+    // }
+    
+    
+    
+}
