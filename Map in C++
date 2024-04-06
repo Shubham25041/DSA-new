@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Map
+// It stores the data in key, value pair
+// key is always unique, value can be duplicate 
+// Insertion, deletion and search operations have logarithmic time
+// O(log n) is the T.C. for all the above cases
+// It's sorted on the basis of key
+
+int main(){
+    // map creation
+    map<int,int>m;
+    m.insert(make_pair(20,30));
+    m.insert(make_pair(30,310));
+    m.insert(make_pair(40,230));
+    m.insert(make_pair(20,230));
+    m.insert(make_pair(50,30));
+    m[100] = 60;  // insert kar sakte ho value ko , we can also update value using this
+    m[20] = 70;
+    
+    for(auto it = m.begin(); it != m.end(); it++)
+    cout<<it->first<<" "<<it->second<<endl;
+    cout<<endl;
+    
+    if(m.count(20))
+    cout<<m[20]<<" ";
+    cout<<endl;
+    
+    m.erase(20);
+    
+    for(auto it = m.begin(); it != m.end(); it++)
+    cout<<it->first<<" "<<it->second<<endl;
+    
+    
+    // In multi-map m[100] = 60; these types of thing is not allowed because we have duplicate value in multi-map So, it will
+    // be problematic to update the value
+    
+}
