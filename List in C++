@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    list<int>l;
+    l.push_back(20);
+    l.push_back(30);
+    l.push_back(40);
+    l.push_back(90);
+    l.push_front(15);
+    
+    cout<<l.front()<<" "<<l.back()<<" "<<l.size()<<endl;
+    
+    l.pop_back();
+    cout<<l.front()<<" "<<l.back()<<" "<<l.size()<<endl;
+    
+    // iterator
+    for(auto it = l.begin(); it != l.end(); it++){
+        cout<<*it<<" ";
+    }
+    cout<<endl;
+    
+    // reverse iteration
+    for(auto it = l.rbegin(); it != l.rend(); it++){
+        cout<<*it<<" ";
+    }
+}
