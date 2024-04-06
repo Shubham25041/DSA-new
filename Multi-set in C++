@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// In multiset duplicate element can be present
+// Element will be arranged in sorted order
+// It is implemented using Red-black, AVL tree
+
+int main(){
+    
+    multiset<int>s;
+    s.insert(10);
+    s.insert(20);
+    s.insert(10);
+    s.insert(30);
+    
+    for(auto it = s.begin(); it != s.end(); it++)
+    cout<<*it<<" ";
+    cout<<endl;
+    
+    s.erase(10);
+    for(auto it = s.begin(); it != s.end(); it++)
+    cout<<*it<<" ";
+    
+    // The problem here is if we try to delete a element it's all occurance is deleted like here both 10 is deleted
+    
+    // If we want to erase only 1 term out of multiple occurance first we have to find it's index then we have to delete it
+    
+}
