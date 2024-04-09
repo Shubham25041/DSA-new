@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    priority_queue<int>p;  // max heap
+    p.push(10);
+    p.push(20);
+    p.push(11);
+    p.push(18);
+    p.push(15);
+    
+    cout<<p.top()<<" ";  // At present it will give result 20 as 20 is the max element
+    
+    // Delete 
+    p.pop();
+    cout<<p.top()<<" "; // As we have deleted a element now the next max is 18
+    
+    // size 
+    cout<<p.size()<<endl;
+    
+    // Printing all element of priority queue 
+    while(!p.empty()){
+        cout<<p.top()<<" ";
+        p.pop();
+    }
+    
+}
